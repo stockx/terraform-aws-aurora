@@ -164,7 +164,7 @@
 resource "aws_db_subnet_group" "main" {
   name        = "${var.name}"
   description = "Group of DB subnets"
-  subnet_ids  = ["${var.subnets}"]
+  subnet_ids  = "${var.subnets}"
 
   tags {
     envname = "${var.envname}"
