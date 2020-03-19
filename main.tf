@@ -288,7 +288,7 @@ resource "aws_appautoscaling_target" "autoscaling" {
 
 resource "aws_appautoscaling_policy" "autoscaling" {
   count              = var.replica_scale_enabled ? 1 : 0
-  depends_on         = ["aws_appautoscaling_target.autoscaling"]
+  depends_on         = [aws_appautoscaling_target.autoscaling]
   name               = "target-metric"
   policy_type        = "TargetTrackingScaling"
   resource_id        = "cluster:${aws_rds_cluster.default.cluster_identifier}"
